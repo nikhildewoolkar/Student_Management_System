@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MCA TUTOR</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+hr.new2 {
+  border-top: 1px dashed black;
+}
+hr {
+  border: 5px solid rgb(5, 5, 5);
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+
+
+	<!-- Features -->
+
+<hr>
+<form action="/editprofile" method="POST" style="border:1px solid #ccc">
+    <div class="contain">
+	<center><h1>Edit Profile<h1><center>
+    <p>Please fill in this form to edit an account.</p>
+	<hr>
+	<div class="form-control">
+	<h3>Profile pic:-<h3><img src="{{user.profile.profilepic.url}}" alt="Avatar" class="avatar"></br> 
+    <!--<label for="profilepic">Profile Photo:</label>
+	<input id="image" name="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>-->
+    </br></br>
+    <label for="fname">First Name:-</label>
+    <input type="text"  name="fname" value="{{user.first_name}}" required readonly>
+
+	<label for="lname">Last Name:-</label>
+    <input type="text"  lname="lname" value="{{user.last_name}}" required readonly>
+
+    <label for="uid">Username(uid):-</label>
+    <input type="number"  name="username" value="{{user.username}}" required readonly> 
+	
+	<label for="email">Official Email:-</label>
+    <input type="email" email="email" value="{{user.email}}" required  readonly>
+
+	<label for="uid">usernames:-</label>
+    <input type="number" name="u" value="{{user.userprofile.usernames}}" required readonly>
+    
+	<label for="year">Academic year:-</label>
+	<input type="text"  id="year" name="year" value="{{user.userprofile.year}}" required >
+    
+	<label for="batch">Choose academic year:-</label>
+    <input type="text"  id="batch" name="batch" value="{{user.userprofile.batch}}" required >
+
+	<label for="email">personal Email</label>
+    <input type="email" id="pemail" name="pemail" value="{{user.userprofile.privateemail}}" required>
+
+    <label for="phone">Phone No.:-</label>
+    <input type="tel" id="phoneno" name="phoneno" value="{{user.userprofile.phoneno}}" required pattern="[0-9]{10}">   
+	
+	<label for="address">User Address:-</label>
+    <input type="text" id="address" name="address" value="{{user.userprofile.address}}" required >
+
+	<label for="description">Description:-</label>
+    <input type="text" id="des" name="des" value="{{user.userprofile.description}}" required >
+
+	<label for="Skillset">Skillset:-</label>
+    <input type="text" id="skill" name="skill" value="{{user.userprofile.skillset}}" required >
+
+	<label for="github">Github Account:-</label>
+    <input type="text" id="github" name="github" value="{{user.userprofile.github}}" required >
+
+	<label for="hackerrank">hackerrank Account:-</label>
+    <input type="text" id="hackerrank" name="hackerrank" value="{{user.userprofile.hackerrank}}" required >      
+ 
+    <label for="codechef">Codechef Account:-</label>
+    <input type="text" id="codechef"  name="codechef" value="{{user.userprofile.codechef}}" required >
+	<br/>
+
+
+
+  <br/>
+<div class="clearfix">
+      <button type="reset" class="cancelbtn" id="">Reset</button>
+      <button type="submit" class="signupbtn">Save</button>
+    </div>
+</form>
+	
+<hr>
+
+</body>
+</html>

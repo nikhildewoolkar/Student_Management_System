@@ -1,0 +1,749 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MCA TUTOR</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="The River template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{%static 'styles/bootstrap-4.1.2/bootstrap.min.css'%}">
+<link href="{%static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.3.4/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.3.4/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.3.4/animate.css' %}">
+<link href="{%static 'plugins/jquery-datepicker/jquery-ui.css' %}" rel="stylesheet" type="text/css">
+<link href="{%static 'plugins/colorbox/colorbox.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{%static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{%static 'styles/responsive.css' %}">
+<link rel="stylesheet" href="{%static 'styles.css' %}">
+<style>
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+hr.new2 {
+  border-top: 1px dashed black;
+}
+hr {
+  border: 5px solid rgb(5, 5, 5);
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<header class="header">
+		<div class="header_content d-flex flex-row align-items-center justify-content-start">
+			<div class="logo"><a href="#">SMS</a>{%if user.is_authenticated %}<img src="{{user.profile.profilepic.url}}" alt="Avatar" class="avatar"><p>{{user.username}}</p>{% endif %}</div>
+			<div class="ml-auto d-flex flex-row align-items-center justify-content-start">
+				<nav class="main_nav">
+					<ul class="d-flex flex-row align-items-start justify-content-start">
+						<li><a href="/home/">Home</a></li>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li ><a href="/library/">Library</a></li>                                
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               
+                                                <li><a href="/portal/">Notes Portal</a></li>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</ul>
+				</nav>
+				{% if user.is_authenticated %}
+				<div class="book_button"><a href="/profile/">Profile</a></div>
+				<div class="book_button"><a href="/logout/">Logout</a></div>
+				{% else %}
+				<div class="book_button"><a href="/signup/">Signup</a></div>
+				<div class="book_button"><a href="/login/">Login</a></div>
+				{% endif %}
+				<!-- Hamburger Menu -->
+				<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
+			</div>
+		</div>
+	</header>
+
+
+
+	<!-- Menu -->
+
+	
+
+	<!-- Home -->
+
+	<div class="home">
+	
+		<div class="home_slider_container">
+			<div class="owl-carousel owl-theme home_slider">
+			
+				<!-- Slide -->
+				<div class="slide">
+					<div class="background_image" style="background-image:url('{%static 'images/nick.jpg' %}')"></div>
+					<div class="home_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_content text-center">
+										{% if user.is_authenticated %}
+										<li>hello,{{user.first_name}}_{{user.last_name}}</a></li>
+										{% endif %}		
+										<div class="home_title">Student Management System</div>
+										
+										<div class="booking_form_container">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+			
+		</div>
+	</div>
+<hr>
+	<!-- Features -->
+{% if user.is_authenticated %}
+<form action="/library/" method="POST" style="border:1px solid #ccc">
+    {% csrf_token %}
+    <div class="container">
+    <h1>MCA Information</h1>
+    <p>Please Select from following options.</p>
+	<label for="id">Choose relavant option:</label>
+<select id="id" name="id">
+  <option value="0">- - -</option>
+  <option value="1">SEM 1</option>
+  <option value="2">SEM 2</option>
+  <option value="3">SEM 3</option>
+  <option value="4">SEM 4</option>
+  <option value="5">SEM 5</option>
+  <option value="6">OTHER TECHNICAL BOOKS</option>
+  <option value="7">VIDEO LINKS</option>
+</select>
+<div class="clearfix">
+      <button type="reset" class="cancelbtn" id="">Reset</button>
+      <button type="submit" class="signupbtn">Enter</button>
+    </div>
+	</div>
+</form>
+
+<!-- None -->
+{% if id == 0 %}
+<hr>
+<center><h1>select option to get information....<h1><center>
+<br/>
+<hr>
+{% endif %}
+<!-- None -->
+
+<!-- SEM1 -->
+{% if id == 1 %}
+<hr>
+</br></br>
+<center><h1>SEM 1</h1></center>
+</br></br>
+<hr>
+<center><h2>Object Oriented Programming</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem1" and  pdf.pdf_subject == "oop" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>software engineering</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem1" and  pdf.pdf_subject == "se" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>discrete mathematics</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem1" and  pdf.pdf_subject == "dm" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>principals of management</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem1" and  pdf.pdf_subject == "ppm" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Banking and Finance</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem1" and  pdf.pdf_subject == "baf" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Web Developement</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem1" and  pdf.pdf_subject == "wt" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Linux Lab</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem1" and  pdf.pdf_subject == "ll" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center>
+
+<br/>
+{% endif %}
+<!-- SEM1 -->
+
+<!-- SEM2 -->
+{% if id == 2 %}
+<hr>
+</br></br>
+<center><h1>SEM 2</h1></center>
+</br></br>
+<hr>
+<center><h2>Operating Systems</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem2" and  pdf.pdf_subject == "os" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Computer Networks</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem2" and  pdf.pdf_subject == "cn" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Data Structures</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem2" and  pdf.pdf_subject == "ds" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Software Project Management</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem2" and  pdf.pdf_subject == "spm" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Probability and Statistics</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem2" and  pdf.pdf_subject == "pns" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Python Programming Lab</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem2" and  pdf.pdf_subject == "ppl" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+{% endif %}
+<!-- SEM2 -->
+
+<!-- SEM3 -->
+{% if id == 3 %}
+<hr>
+</br></br>
+<center><h1>SEM 3</h1></center>
+</br></br>
+<hr>
+<center><h2>Core and Advanced Java </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem3" and  pdf.pdf_subject == "caj" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Database Management System </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem3" and  pdf.pdf_subject == "dbms" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Operations Research</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem3" and  pdf.pdf_subject == "or" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Soft Skill Development</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem3" and  pdf.pdf_subject == "ssd" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>A Network Security </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem3" and  pdf.pdf_subject == "ns" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>B  Artificial Intelligence</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem3" and  pdf.pdf_subject == "ai" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>C Management Information Systems</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem3" and  pdf.pdf_subject == "mis" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>D Computer Graphics and Image Processing </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem3" and  pdf.pdf_subject == "cgip" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>E  Service Oriented Architecture </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem3" and  pdf.pdf_subject == "soa" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Unified Modeling Language Lab</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem3" and  pdf.pdf_subject == "umll" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+{% endif %}
+<!-- SEM3 -->
+
+<!-- SEM4 -->
+{% if id == 4 %}
+<hr>
+</br></br>
+<center><h1>SEM 4</h1></center>
+</br></br>
+<hr>
+<center><h2>Computational Intelligence  -I </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem4" and  pdf.pdf_subject == "ci" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Software Testing and Quality Assurance</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem4" and  pdf.pdf_subject == "stqa" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Design and Analysis of Algorithm</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem4" and  pdf.pdf_subject == "daoa" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>User Experience Design</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem4" and  pdf.pdf_subject == "ued" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>A Information Security</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem4" and  pdf.pdf_subject == "is" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>B Natural Language Processing </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem4" and  pdf.pdf_subject == "nlp" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>C Enterprise Resource Plannin</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem4" and  pdf.pdf_subject == "erp" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>D Multimedia  </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem4" and  pdf.pdf_subject == "m" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2> E Semantic Web </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem4" and  pdf.pdf_subject == "sw" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Mobile programming Lab</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem4" and  pdf.pdf_subject == "mpl" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+{% endif %}
+<!-- SEM4 -->
+
+<!-- SEM5 -->
+{% if id == 5 %}
+<hr>
+</br></br>
+<center><h1>SEM 5</h1></center>
+</br></br>
+<hr>
+<center><h2>Distributed Computing and Cloud Computing</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem5" and  pdf.pdf_subject == "dccc" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Data Analytics</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem5" and  pdf.pdf_subject == "da" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Internet of Things </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem5" and  pdf.pdf_subject == "iot" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>A Cyber-Security  and Forensics </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem5" and  pdf.pdf_subject == "csaf" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2> B  Machine  Learning</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem5" and  pdf.pdf_subject == "ml" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>C Customer Relationship Management</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem5" and  pdf.pdf_subject == "crm" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>D Digital Marketing</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem5" and  pdf.pdf_subject == "dtmg" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>E Web Services  </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem5" and  pdf.pdf_subject == "ws" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+<center><h2>Animation and Graphic Design Lab   </h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem5" and  pdf.pdf_subject == "agdl" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+
+<center><h2>MOOC</h2></center>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "sem5" and  pdf.pdf_subject == "mooc" %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<hr>
+
+
+{% endif %}
+<!-- SEM5 -->
+
+<!-- Other technical books -->
+{% if id == 6 %}
+<hr>
+</br></br>
+<center><h1>Other Technical Books</h1></center>
+</br></br>
+<hr>
+<ul>
+{% for pdf in pdf %}
+{% if pdf.pdf_type == "others"  %}
+<h3># {{pdf.pdf_name}} :- <a href={{pdf.pdf_doc.url}} download> download</a></br><h3>
+{% endif %}
+{% endfor %}
+</ul>
+<br/>
+<hr>
+{% endif %}
+<!-- Other technical books -->
+
+<!-- Video Links -->
+{% if id == 7 %}
+<hr>
+</br></br>
+<center><h1>Study Video Links</h1></center>
+</br></br>
+<hr>
+<ul>
+{% for vlink in vlink %}
+<h3># {{vlink.vlink_topic}} :- <a href="{{vlink.vlink_url}}" > watch video by clicking here..</a></br><h3>
+<br/>
+{% endfor %}
+</ul>
+<hr>
+{% endif %}
+<!-- Video Links -->
+{% else %}
+<hr>
+</br>
+<center><h1>To contiinue,first you have to login......</h1><center>
+</br>
+<hr>
+{% endif %}
+
+		<!-- Footer -->
+<hr>
+	<footer class="footer">
+		<div class="footer_content">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="footer_logo_container text-center">
+							<div class="footer_logo">
+								<a href="#"></a>
+								<div>SMS</div>
+								<div>batch 2020</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row footer_row">
+					
+					<!-- Address -->
+					<div class="col-lg-3">
+						<div class="footer_title">Our Address</div>
+						<div class="footer_list">
+							<ul>
+								<li>4th floor,MCA Department </li>
+								<li>Sardar Patel Institute of Technology</li>
+								<li>Bhavans Campus,Azaad Nagar </li>
+								<li>Andheri West, Mumbai-400058</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Reservations -->
+					<div class="col-lg-3">
+						<div class="footer_title">Contacts</div>
+						<div class="footer_list">
+							<ul>
+								<li>Tel: 022-26708520, 022-26706640</li>
+								<li>Email: pooja@spit.ac.in</li>
+								<li>http://mca.spit.ac.in/</li>
+							</ul>
+						</div>
+					</div>
+
+				
+
+					<!-- Footer images -->
+					<div class="col-lg-3">
+						<div class="certificates d-flex flex-row align-items-start justify-content-lg-between justify-content-start flex-lg-nowrap flex-wrap">
+							<div class="cert"><img src="{%static 'images/spitlogo.png'%}" alt=""></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+	<ul class="d-flex flex-row align-items-start justify-content-start">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+       
+		<li><a href="home.html">Home</a></li>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li><a href="/library/">Library</a></li>
+						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                
+                                                <li><a href="/portal/">Notes Portal</a></li>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<li><a href="/signup/">Sign up</a></li>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li><a href="/login/">Login</a></li>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</ul></div>
+					<br /> 
+					
+		<div class="copyright">
+
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made by Sahil,Kuldeep</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</div>
+	</footer>
+</div>
+
+<script src="{%static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{%static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{%static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{%static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{%static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{%static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{%static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{%static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{%static 'plugins/OwlCarousel2-2.3.4/owl.carousel.js' %}"></script>
+<script src="{%static 'plugins/easing/easing.js' %}"></script>
+<script src="{%static 'plugins/progressbar/progressbar.min.js' %}"></script>
+<script src="{%static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{%static 'plugins/jquery-datepicker/jquery-ui.js' %}"></script>
+<script src="{%static 'plugins/colorbox/jquery.colorbox-min.js' %}"></script>
+<script src="{%static 'js/custom.js' %}"></script>
+<script src="{%static 'js/blog.js' %}"></script>
+</body>
+</html>

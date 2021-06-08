@@ -1,0 +1,391 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MCA TUTOR</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="The River template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{%static 'styles/bootstrap-4.1.2/bootstrap.min.css'%}">
+<link href="{%static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.3.4/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.3.4/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.3.4/animate.css' %}">
+<link href="{%static 'plugins/jquery-datepicker/jquery-ui.css' %}" rel="stylesheet" type="text/css">
+<link href="{%static 'plugins/colorbox/colorbox.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{%static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{%static 'styles/responsive.css' %}">
+<link rel="stylesheet" href="{%static 'styles.css' %}">
+<style>
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+hr.new2 {
+  border-top: 1px dashed black;
+}
+hr {
+  border: 5px solid rgb(5, 5, 5);
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<header class="header">
+		<div class="header_content d-flex flex-row align-items-center justify-content-start">
+			<div class="logo"><a href="#">SMS</a>{%if user.is_authenticated %}<img src="{{user.profile.profilepic.url}}" alt="Avatar" class="avatar"><p>{{user.username}}</p>{% endif %}</div>
+			<div class="ml-auto d-flex flex-row align-items-center justify-content-start">
+				<nav class="main_nav">
+					<ul class="d-flex flex-row align-items-start justify-content-start">
+						<li ><a href="/home/">Home</a></li>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li><a href="/library/">Library</a></li>                                
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               
+                                                <li><a href="/portal/">Notes Portal</a></li>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</ul>
+				</nav>
+				{% if user.is_authenticated %}
+				<div class="book_button"><a href="/profile/">Profile</a></div>
+				<div class="book_button"><a href="/logout/">Logout</a></div>
+				{% else %}
+				<div class="book_button"><a href="/signup/">Signup</a></div>
+				<div class="book_button"><a href="/login/">Login</a></div>
+				{% endif %}
+				<!-- Hamburger Menu -->
+				<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
+			</div>
+		</div>
+	</header>
+
+
+
+	<!-- Menu -->
+
+	
+
+	<!-- Home -->
+
+	<div class="home">
+	
+		<div class="home_slider_container">
+			<div class="owl-carousel owl-theme home_slider">
+			
+				<!-- Slide -->
+				<div class="slide">
+					<div class="background_image" style="background-image:url('{%static 'images/nick.jpg' %}')"></div>
+					<div class="home_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_content text-center">
+										{% if user.is_authenticated %}
+										<li>hello,{{user.first_name}}_{{user.last_name}}</a></li>
+										{% endif %}		
+										<div class="home_title">Student Management System</div>
+										
+										<div class="booking_form_container">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+			
+		</div>
+	</div>
+<hr>
+	<!-- Features -->
+<!-- About -->
+
+	<div class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="about_title"><h2>MCA Department / 11 years of excellence</h2></div>
+				</div>
+			</div>
+			<div class="row about_row">
+				<!-- About Content -->
+				<div class="col-lg-6">
+					<div class="about_content">
+						<div class="about_text">
+							<p>Welcome MCA Department of Sardar Patel Institute of Technology
+
+Right from it’s first year in 2009, S.P.I.T. has been one of the sought college by students for MCA and is renown for its ongoing courses. Even though starting in year 2009 it has managed to excel quickly and with the highest cutoff this year it has shown a growth among the students all over.</p>
+					
+						</div>
+
+					</div>
+				</div>
+
+				<!-- About Images -->
+				<div class="col-lg-6">
+					<div class="about_images d-flex flex-row align-items-start justify-content-between flex-wrap">
+
+<div class="cert"><img src="{%static 'images/spitlogo.png'%}" alt=""></div>
+<div class="cert"><img src="{% static 'images/about_2.png' %}" alt=""></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<hr>
+	<!-- Blog -->
+<center><h1>About us</h1></center>
+	<div class="blog">
+		<div class="container">
+			<div class="row">
+				<center><h1>-------</h1></center>
+				<!-- Blog Posts -->
+				<div class="col-lg-9">
+					<div class="blog_posts">
+						
+						{% for photos in photos%}
+						<!-- Blog Post -->
+						<div class="blog_post">
+							<div class="blog_post_image">
+								<center><img src="{{photos.photos.url}}" alt=""></center>
+							</div>
+							<div class="blog_post_content">
+								<div class="blog_post_title"><center><h2>{{photos.pictitle}}</h2></center></div>
+								
+								<div class="blog_post_text">
+									<center><p>{{photos.picinfo}}{{photos.photos.url}}</p></center>
+									</div>
+								
+							</div>
+						</div>
+<hr class="new2">
+						{% endfor %}
+
+					</div>
+				</div>
+            </div>
+    </div>
+<hr>
+	<!-- Split Section Right -->
+<center>
+	<div class="split_section_right container_custom">
+		<div class="container">
+			<div class="row row-xl-eq-height">
+				
+			
+
+				<div class="col-xl-6 order-xl-2 order-1">
+					<div class="split_section_right_content">
+						<div class="split_section_title"><h1>Vision And Mission</h1></div>
+						<div class="split_section_text">
+							<p><h6>Vision:-<h6></p><ul> To create a centre of excellence which will produce cutting edge technologists to
+						 cater the needs of Business and Society.To create a centre of excellence which will produce cutting edge technologists to cater the needs of Business and Society.</li></ul>
+						
+						</br>
+						<p><h6>Mission:-<h6></p>
+						<ul>
+						<li>To provide high quality education.</li>
+						<li>To train the students to excel in cutting edge technologies that make them industry ready.</li>
+						<li>To inculcate ethical and professional values in students for the betterment of society.</li>
+						<li>To inculcate entrepreneurial mindset in students in order to make them job creators.</li></ul>
+						</br>
+						<p><h6>Programme Specific Outcomes (PSO):-<h6>At the end of the programme student will be able to:</p>
+						<ul>
+						<li> PSO 1:Apply standard practices and strategies required for IT industry.</li>
+						<li>PSO 2: Solve real world problems using cutting edge technology. </li>
+						</ul>
+							</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</center>
+<hr>
+
+
+	<!-- Split Section Left -->
+<center>
+	<div class="split_section_left container_custom">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6">
+					<div class="split_section_left_content">
+						<div class="split_section_title"><h1>Program Outcome</h1></div>
+						<div class="split_section_text">
+						<p><h6>PO1: Computational Knowledge:<h6></p>
+						<li>Apply knowledge of computing fundamentals, computing specialization, mathematics, and domain knowledge appropriate for problem solving technique to formulate solution for Information System.</li>
+</br>
+						<p><h6>PO2: Problem Analysis::<h6></p>
+						<li>Conceptualize knowledge and background to be able to analyze a problem and identify and define the computing requirements for its solution.</li>
+						</div>
+</br>
+						<p><h6>PO3: Design / Development of Solutions:<h6></p>
+						<li> Design a new system to meet certainspecification</li>
+</br>
+						<p><h6>PO4: Conduct investigations of complex computing problems:<h6></p>
+						<li>Conduct investigations of complex problems using analysis, modelling, interpretation of data, and synthesis of information in order to reach valid conclusions.</li>
+</br>
+						<p><h6>PO5:Modern Tool Usage:<h6></p>
+						<li> Design, monitor, manage, test, control, evaluate an existing computer-based system, process, component or program and provide valid conclusions using software modeling, warehousing, mining and networking tools for application development.</li>
+</br>
+						<p><h6>PO6: Professional Ethics: <h6></p>
+						<li> Apply ethical principles and adhere to professional ethics and responsibilities and norms of Application Development.</li>
+</br>
+						<p><h6>PO7:Life-long Learning:<h6></p>
+						<li>Recognize the need for and an ability to engage in lifelong learning</li>
+</br>
+						<p><h6>PO8:Project management and finance: <h6></p>
+						<li>Demonstrate knowledge and understanding of IT and management principles and apply these to one’s own work, as a member or a leader of the team, to manage IT projects.</li>
+</br>
+						<p><h6>PO9: Communication Efficacy: <h6></p>
+						<li> Communicate effectively using classic and modern technology with the IT professionals and with society at large through report writing as well as technical presentations.</li>
+</br>
+						<p><h6>PO10:Societal and Environmental Concern:<h6></p>
+						<p><li>Understand the impact of the applications and services in societal and environmental contexts, and exhibit the knowledge of, and need for sustainable development.</li>
+						</p>
+</br>
+						<p><h6>PO11: Individual and Team Work: <h6></p>
+						<li>Function effectively as an individual, and as a member or leader of a team.</li>
+</br>
+						<p><h6>PO12:Innovation and Entrepreneurship:<h6></p>
+						<li>Create opportunity to produce successful Entrepreneur.</li>
+
+				<!-- Loaders Image -->
+				
+			</div>
+		</div>
+	</div>
+	</div>
+	</center>
+		<!-- Footer -->
+<hr>
+	<footer class="footer">
+		<div class="footer_content">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="footer_logo_container text-center">
+							<div class="footer_logo">
+								<a href="#"></a>
+								<div>SMS</div>
+								<div>batch 2020</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row footer_row">
+					
+					<!-- Address -->
+					<div class="col-lg-3">
+						<div class="footer_title">Our Address</div>
+						<div class="footer_list">
+							<ul>
+								<li>4th floor,MCA Department </li>
+								<li>Sardar Patel Institute of Technology</li>
+								<li>Bhavans Campus,Azaad Nagar </li>
+								<li>Andheri West, Mumbai-400058</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Reservations -->
+					<div class="col-lg-3">
+						<div class="footer_title">Contacts</div>
+						<div class="footer_list">
+							<ul>
+								<li>Tel: 022-26708520, 022-26706640</li>
+								<li>Email: pooja@spit.ac.in</li>
+								<li>http://mca.spit.ac.in/</li>
+							</ul>
+						</div>
+					</div>
+
+				
+
+					<!-- Footer images -->
+					<div class="col-lg-3">
+						<div class="certificates d-flex flex-row align-items-start justify-content-lg-between justify-content-start flex-lg-nowrap flex-wrap">
+							<div class="cert"><img src="{%static 'images/spitlogo.png'%}" alt=""></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+	<ul class="d-flex flex-row align-items-start justify-content-start">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+       
+		<li><a href="home.html">Home</a></li>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li><a href="/library/">Library</a></li>
+						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                
+                                                <li><a href="/portal/">Notes Portal</a></li>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<li><a href="/signup/">Sign up</a></li>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li><a href="/login/">Login</a></li>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</ul></div>
+					<br /> 
+					
+		<div class="copyright">
+
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made by Sahil,Kuldeep</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</div>
+	</footer>
+</div>
+
+<script src="{%static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{%static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{%static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{%static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{%static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{%static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{%static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{%static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{%static 'plugins/OwlCarousel2-2.3.4/owl.carousel.js' %}"></script>
+<script src="{%static 'plugins/easing/easing.js' %}"></script>
+<script src="{%static 'plugins/progressbar/progressbar.min.js' %}"></script>
+<script src="{%static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{%static 'plugins/jquery-datepicker/jquery-ui.js' %}"></script>
+<script src="{%static 'plugins/colorbox/jquery.colorbox-min.js' %}"></script>
+<script src="{%static 'js/custom.js' %}"></script>
+<script src="{%static 'js/blog.js' %}"></script>
+</body>
+</html>
